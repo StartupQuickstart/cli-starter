@@ -1,10 +1,10 @@
 #!/usr/bin/env babel-node --
 
-import cli from 'commander';
+const { program } = require('commander');
 import * as commands from './commands';
 import pkg from '../package.json';
 
-cli
+program
   .name(Object.keys(pkg.bin)[0])
   .description(pkg.description)
   .version(pkg.version)
@@ -15,4 +15,4 @@ cli
   // Root commands
   .addCommand(commands.update);
 
-cli.parse(process.argv);
+program.parse(process.argv);
